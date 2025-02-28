@@ -42,7 +42,8 @@ export async function POST(request: NextRequest) {
       );
       const tools = body.tools;
       console.log("TOOLS:");
-      tools.map((tool) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      tools.map((tool: any) => {
         console.log(JSON.stringify(tool.function));
       });
       if (system && user) {
