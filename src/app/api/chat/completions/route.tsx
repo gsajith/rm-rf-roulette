@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextRequest, NextResponse } from "next/server";
 
+import { v4 as uuidv4 } from "uuid";
+
 // Handler for GET requests
 export async function GET(request: NextRequest) {
   console.log("--- GET Request Received ---");
@@ -48,7 +50,7 @@ export async function POST(request: NextRequest) {
           return NextResponse.json({ message: "hi" });
         } else if (user.content === "Test prompt using gpt-3.5-turbo") {
           return NextResponse.json({
-            id: "chatcmpl-B3HDQqrdCZgXnu0IVZ0O9UUd4jSzc",
+            id: `chatcmpl-` + uuidv4(),
             object: "chat.completion",
             created: Math.trunc(Date.now() / 1000),
             model: "gpt-4o-2024-08-06",
