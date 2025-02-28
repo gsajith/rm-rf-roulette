@@ -40,10 +40,12 @@ export async function POST(request: NextRequest) {
       const user = body.messages.find(
         (message: { role: string }) => message.role === "user"
       );
+      const tools = body.tools;
+      console.log("TOOLS:");
+      tools.map((tool) => {
+        console.log(JSON.stringify(tool.function));
+      });
       if (system && user) {
-        console.log("System:", system.content);
-        console.log("User:", user.content);
-
         if (user.content === "Testing. Just say hi and nothing else.") {
           return NextResponse.json({ message: "hi" });
         } else if (user.content === "Test prompt using gpt-3.5-turbo") {
@@ -89,6 +91,8 @@ export async function POST(request: NextRequest) {
           console.log(`Status: ${response.status}`);
           console.log("Response Headers:", response.headers);
           return response;
+        } else {
+          return NextResponse.json({ message: "Whatsup" });
         }
       }
     }
