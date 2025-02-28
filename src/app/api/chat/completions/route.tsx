@@ -46,6 +46,11 @@ export async function POST(request: NextRequest) {
 
         if (user.content === "Testing. Just say hi and nothing else.") {
           return NextResponse.json({ message: "hi" });
+        } else if (user.content === "Test prompt using gpt-3.5-turbo") {
+          return NextResponse.json({
+            message:
+              "This is a test response using GPT-3.5 Turbo. Let me know if you need anything specific! 😊",
+          });
         }
       }
     }
