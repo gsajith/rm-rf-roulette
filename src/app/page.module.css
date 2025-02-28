@@ -8,12 +8,11 @@
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
-  align-items: center;
   justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
+  height: 100svh;
   gap: 64px;
   font-family: var(--font-geist-sans);
+  overflow-y: scroll;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,135 +33,186 @@
   grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
 .main code {
-  font-family: inherit;
   background: var(--gray-alpha-100);
   padding: 2px 4px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 600;
+  font-family: monospace;
+  font-size: 24px;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.main a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: inherit;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.main a:hover {
+  opacity: 0.8;
+}
+
+.instructionList {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+  counter-reset: instruction-counter;
+}
+
+.instructionItem {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem 1.2rem;
+  border-radius: 8px;
+  background: var(--gray-alpha-100);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.instructionItem:hover {
+  transform: translateY(-2px);
+}
+
+.instructionItem::before {
+  counter-increment: instruction-counter;
+  content: counter(instruction-counter);
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  background: var(--button-primary-hover);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.instructionItem .codeContainer {
+  margin-top: 1rem;
+  border-radius: 6px;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
+/* Highlight important elements */
+.instructionItem strong {
+  color: #60a5fa;
+  /* Light blue color */
 }
 
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+/* Enhanced link appearance within list items */
+.instructionItem a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 2px dotted #60a5fa;
+  padding-bottom: 2px;
+  transition: all 0.2s;
 }
 
-.footer a {
+.instructionItem a:hover {
+  border-bottom-style: solid;
+  opacity: 1;
+}
+
+/* Add different colors for different instruction steps */
+.instructionItem:nth-child(1)::before {
+  background: #3b82f6;
+}
+
+.instructionItem:nth-child(2)::before {
+  background: #10b981;
+}
+
+.instructionItem:nth-child(3)::before {
+  background: #f59e0b;
+}
+
+.heroText {
+  font-size: clamp(24px, 9.5vw, 80px);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  width: max-content;
+}
+
+.codeContainer {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.footer img {
-  flex-shrink: 0;
+.codeContainer code {
+  width: 100%;
+  padding: 20px;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.codeSubtext {
+  opacity: 0.5;
+  text-align: center;
+  margin-top: 4px;
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.tabsContainer {
+  width: 100%;
+  margin-top: 2rem;
+  max-width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.tabsHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 100%;
+}
+
+.tabsList {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab {
+  padding: 12px;
+  background: var(--gray-alpha-100);
+  border: none;
+  font-size: 16px;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background: var(--gray-alpha-200);
+}
+
+.tab[data-active='true'] {
+  border-bottom: 2px solid var(--foreground);
+}
+
+.tabContent {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  flex-direction: column;
+}
+
+.gameContainer {
+  padding: 16px;
 }

@@ -1,0 +1,17 @@
+.page {
+  height: 90vh;
+  background: grey;
+  overflow-y: scroll;
+}
+
+.stickyHeader {
+  background: green;
+  padding: 30px;
+  position: sticky;
+  top: 0px;
+}
+
+.scrollingContent {
+  height: 5000px;
+  background: red;
+}
