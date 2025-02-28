@@ -21,7 +21,22 @@ export async function POST(request: NextRequest) {
   // Log request body if it exists
   try {
     const body = await request.json();
-    console.log("Body:", body);
+    if (body.messages) {
+      const system = body.messages.find(
+        (message: { role: string }) => message.role === "system"
+      );
+      const user = body.messages.find(
+        (message: { role: string }) => message.role === "user"
+      );
+      if (system && user) {
+        console.log("System:", system.content);
+        console.log("User:", user.content);
+
+        if (user.content === "Testing. Just say hi and nothing else.") {
+          return NextResponse.json({ message: "hi" });
+        }
+      }
+    }
   } catch (e) {
     console.log("No JSON body or parsing error");
   }
