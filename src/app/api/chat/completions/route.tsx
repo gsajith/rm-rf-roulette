@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
   // Log request body if it exists
   try {
     const body = await request.json();
+    console.log("BODY: ", body);
     if (body.messages) {
       const system = body.messages.find(
         (message: { role: string }) => message.role === "system"
