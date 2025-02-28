@@ -85,58 +85,6 @@ export async function POST(request: NextRequest) {
 
           const response = new Response(JSON.stringify(jsonBody, null, "  "));
 
-          // Remove the vary header if it exists
-          response.headers.delete("vary");
-
-          // Set standard headers
-          response.headers.set("content-type", "application/json");
-          response.headers.set("access-control-expose-headers", "X-Request-ID");
-          response.headers.set(
-            "openai-organization",
-            "user-m5zczkgcn5tupibsb6oyfhxp"
-          );
-          // Dynamic timestamp for processing
-          const processingTime = Math.floor(Math.random() * 500) + 1000; // Random time between 100-600ms
-          response.headers.set(
-            "openai-processing-ms",
-            processingTime.toString()
-          );
-          response.headers.set("openai-version", "2020-10-01");
-          response.headers.set("x-ratelimit-limit-requests", "10000");
-          response.headers.set("x-ratelimit-limit-tokens", "200000");
-          response.headers.set("x-ratelimit-remaining-requests", "9999");
-          response.headers.set("x-ratelimit-remaining-tokens", "29968");
-          response.headers.set(
-            "x-ratelimit-reset-requests",
-            `${Math.floor(Math.random() * 500)}ms`
-          );
-          response.headers.set("x-ratelimit-reset-tokens", "38ms");
-          // Dynamic request ID
-          const requestId = `req_${Array.from({ length: 32 }, () =>
-            Math.floor(Math.random() * 16).toString(16)
-          ).join("")}`;
-          response.headers.set("x-request-id", requestId);
-          response.headers.set(
-            "strict-transport-security",
-            "max-age=31536000; includeSubDomains; preload"
-          );
-          response.headers.set("cf-cache-status", "DYNAMIC");
-          response.headers.set("x-content-type-options", "nosniff");
-          response.headers.set("server", "cloudflare");
-          response.headers.set(
-            "cf-ray",
-            `${Array.from({ length: 16 }, () =>
-              Math.floor(Math.random() * 16).toString(16)
-            ).join("")}-EWR`
-          );
-          response.headers.set("alt-svc", 'h3=":443"; ma=86400');
-
-          // Set cookie headers - Next.js handles this differently than showing multiple set-cookie headers
-          response.headers.set(
-            "set-cookie",
-            "__cf_bm=tV4gMfLwzZwUopVbspgfOXGAzEbiCzhmBhVRsF0qHzE-1740776599-1.0.1.1-owSB8SjirauLP_C0ggDxaRejY4iBB4j5G2aomlVaEW3U.W1UAHZVd_.ij_SKIRx0V74dVwauaijkIzyhYXjQVGF3ZJ8VYbhM.sxouxKGixM; path=/; expires=Fri, 28-Feb-25 21:33:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=rTVsn9RReD0HvoaLKjFznEIA1m11z0AB9.w.YUbhOMc-1740776599667-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
-          );
-
           console.log("=== Response ===");
           console.log(`Status: ${response.status}`);
           console.log("Response Headers:", response.headers);
