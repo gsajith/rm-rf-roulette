@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
             id: "chatcmpl-B626btJqv7jXSxVrnlbqvapMUR4OP",
             object: "chat.completion",
             created: Math.trunc(Date.now() / 1000) + 3000,
-            model: "gpt-4o-2024-08-06",
+            model: "gpt-4o-mini-2024-07-18",
             choices: [
               {
                 index: 0,
@@ -61,13 +61,13 @@ export async function POST(request: NextRequest) {
                   refusal: null,
                 },
                 logprobs: null,
-                finish_reason: "stop",
+                finish_reason: "length",
               },
             ],
             usage: {
-              prompt_tokens: 26,
-              completion_tokens: 3,
-              total_tokens: 29,
+              prompt_tokens: 28,
+              completion_tokens: 10,
+              total_tokens: 28,
               prompt_tokens_details: {
                 cached_tokens: 0,
                 audio_tokens: 0,
@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
               },
             },
             service_tier: "default",
-            system_fingerprint: "fp_eb9dce56a8",
+            system_fingerprint: "fp_06737a9306",
           };
 
           const response = new Response(JSON.stringify(jsonBody, null, "  "));
@@ -101,11 +101,10 @@ export async function POST(request: NextRequest) {
             "openai-processing-ms",
             processingTime.toString()
           );
-          response.headers.set("x-http-version", "HTTP/2.0");
           response.headers.set("openai-version", "2020-10-01");
-          response.headers.set("x-ratelimit-limit-requests", "500");
-          response.headers.set("x-ratelimit-limit-tokens", "30000");
-          response.headers.set("x-ratelimit-remaining-requests", "499");
+          response.headers.set("x-ratelimit-limit-requests", "10000");
+          response.headers.set("x-ratelimit-limit-tokens", "200000");
+          response.headers.set("x-ratelimit-remaining-requests", "9999");
           response.headers.set("x-ratelimit-remaining-tokens", "29968");
           response.headers.set(
             "x-ratelimit-reset-requests",
