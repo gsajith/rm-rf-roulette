@@ -11,7 +11,7 @@ export default function Home() {
   const [uuid, setUUID] = useState("");
 
   const deathCommand = "sudo rm -rf --no-preserve-root /";
-  const URL = "https://rm-rf-roulette.vercel.app/api/";
+  const URL = "https://rm-rf-roulette.vercel.app/api";
 
   useEffect(() => {
     const existingUUID = localStorage.getItem("rm-rf-roulette-uuid");

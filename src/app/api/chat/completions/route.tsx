@@ -11,6 +11,17 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({ message: "GET request logged" });
 }
 
+export async function OPTIONS(request: Request) {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
 // Handler for POST requests
 export async function POST(request: NextRequest) {
   console.log("--- POST Request Received ---");
