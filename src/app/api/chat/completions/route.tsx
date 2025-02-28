@@ -48,7 +48,39 @@ export async function POST(request: NextRequest) {
           return NextResponse.json({ message: "hi" });
         } else if (user.content === "Test prompt using gpt-3.5-turbo") {
           return NextResponse.json({
-            message: "I'm here to help you with your prompt using",
+            id: "chatcmpl-B3HDQqrdCZgXnu0IVZ0O9UUd4jSzc",
+            object: "chat.completion",
+            created: Math.trunc(Date.now() / 1000),
+            model: "gpt-4o-2024-08-06",
+            choices: [
+              {
+                index: 0,
+                message: {
+                  role: "assistant",
+                  content: "I am a language model based on GPT-3",
+                  refusal: null,
+                },
+                logprobs: null,
+                finish_reason: "length",
+              },
+            ],
+            usage: {
+              prompt_tokens: 28,
+              completion_tokens: 10,
+              total_tokens: 38,
+              prompt_tokens_details: {
+                cached_tokens: 0,
+                audio_tokens: 0,
+              },
+              completion_tokens_details: {
+                reasoning_tokens: 0,
+                audio_tokens: 0,
+                accepted_prediction_tokens: 0,
+                rejected_prediction_tokens: 0,
+              },
+            },
+            service_tier: "default",
+            system_fingerprint: "fp_eb9dce56a8",
           });
         }
       }
