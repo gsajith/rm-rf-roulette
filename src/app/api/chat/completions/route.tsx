@@ -8,311 +8,7 @@ export async function GET(request: NextRequest) {
   console.log("Headers:", Object.fromEntries(request.headers));
   console.log("Request:", request);
 
-  return NextResponse.json({
-    object: "list",
-    data: [
-      {
-        id: "gpt-4.5-preview",
-        object: "model",
-        created: 1740623059,
-        owned_by: "system",
-      },
-      {
-        id: "omni-moderation-2024-09-26",
-        object: "model",
-        created: 1732734466,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4.5-preview-2025-02-27",
-        object: "model",
-        created: 1740623304,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini-audio-preview-2024-12-17",
-        object: "model",
-        created: 1734115920,
-        owned_by: "system",
-      },
-      {
-        id: "dall-e-3",
-        object: "model",
-        created: 1698785189,
-        owned_by: "system",
-      },
-      {
-        id: "dall-e-2",
-        object: "model",
-        created: 1698798177,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-audio-preview-2024-10-01",
-        object: "model",
-        created: 1727389042,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-audio-preview",
-        object: "model",
-        created: 1727460443,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini-realtime-preview-2024-12-17",
-        object: "model",
-        created: 1734112601,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini-realtime-preview",
-        object: "model",
-        created: 1734387380,
-        owned_by: "system",
-      },
-      {
-        id: "o1-mini-2024-09-12",
-        object: "model",
-        created: 1725648979,
-        owned_by: "system",
-      },
-      {
-        id: "o1-preview-2024-09-12",
-        object: "model",
-        created: 1725648865,
-        owned_by: "system",
-      },
-      {
-        id: "o1-mini",
-        object: "model",
-        created: 1725649008,
-        owned_by: "system",
-      },
-      {
-        id: "o1-preview",
-        object: "model",
-        created: 1725648897,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini-audio-preview",
-        object: "model",
-        created: 1734387424,
-        owned_by: "system",
-      },
-      {
-        id: "whisper-1",
-        object: "model",
-        created: 1677532384,
-        owned_by: "openai-internal",
-      },
-      {
-        id: "gpt-4-turbo",
-        object: "model",
-        created: 1712361441,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-realtime-preview-2024-10-01",
-        object: "model",
-        created: 1727131766,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4",
-        object: "model",
-        created: 1687882411,
-        owned_by: "openai",
-      },
-      {
-        id: "text-embedding-3-large",
-        object: "model",
-        created: 1705953180,
-        owned_by: "system",
-      },
-      {
-        id: "babbage-002",
-        object: "model",
-        created: 1692634615,
-        owned_by: "system",
-      },
-      {
-        id: "chatgpt-4o-latest",
-        object: "model",
-        created: 1723515131,
-        owned_by: "system",
-      },
-      {
-        id: "tts-1-hd-1106",
-        object: "model",
-        created: 1699053533,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-audio-preview-2024-12-17",
-        object: "model",
-        created: 1734034239,
-        owned_by: "system",
-      },
-      {
-        id: "tts-1-hd",
-        object: "model",
-        created: 1699046015,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini-2024-07-18",
-        object: "model",
-        created: 1721172717,
-        owned_by: "system",
-      },
-      {
-        id: "tts-1",
-        object: "model",
-        created: 1681940951,
-        owned_by: "openai-internal",
-      },
-      {
-        id: "tts-1-1106",
-        object: "model",
-        created: 1699053241,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4-turbo-2024-04-09",
-        object: "model",
-        created: 1712601677,
-        owned_by: "system",
-      },
-      {
-        id: "davinci-002",
-        object: "model",
-        created: 1692634301,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo-1106",
-        object: "model",
-        created: 1698959748,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-2024-08-06",
-        object: "model",
-        created: 1722814719,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-mini",
-        object: "model",
-        created: 1721172741,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-2024-05-13",
-        object: "model",
-        created: 1715368132,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo-instruct",
-        object: "model",
-        created: 1692901427,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-2024-11-20",
-        object: "model",
-        created: 1739331543,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o",
-        object: "model",
-        created: 1715367049,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo-instruct-0914",
-        object: "model",
-        created: 1694122472,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo-0125",
-        object: "model",
-        created: 1706048358,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4o-realtime-preview-2024-12-17",
-        object: "model",
-        created: 1733945430,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo",
-        object: "model",
-        created: 1677610602,
-        owned_by: "openai",
-      },
-      {
-        id: "gpt-4o-realtime-preview",
-        object: "model",
-        created: 1727659998,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-3.5-turbo-16k",
-        object: "model",
-        created: 1683758102,
-        owned_by: "openai-internal",
-      },
-      {
-        id: "gpt-4-0125-preview",
-        object: "model",
-        created: 1706037612,
-        owned_by: "system",
-      },
-      {
-        id: "text-embedding-3-small",
-        object: "model",
-        created: 1705948997,
-        owned_by: "system",
-      },
-      {
-        id: "text-embedding-ada-002",
-        object: "model",
-        created: 1671217299,
-        owned_by: "openai-internal",
-      },
-      {
-        id: "gpt-4-1106-preview",
-        object: "model",
-        created: 1698957206,
-        owned_by: "system",
-      },
-      {
-        id: "gpt-4-0613",
-        object: "model",
-        created: 1686588896,
-        owned_by: "openai",
-      },
-      {
-        id: "gpt-4-turbo-preview",
-        object: "model",
-        created: 1706037777,
-        owned_by: "system",
-      },
-      {
-        id: "omni-moderation-latest",
-        object: "model",
-        created: 1731689265,
-        owned_by: "system",
-      },
-    ],
-  });
+  return NextResponse.json({ message: "GET request logged" });
 }
 
 export async function OPTIONS(request: Request) {
@@ -351,11 +47,11 @@ export async function POST(request: NextRequest) {
         if (user.content === "Testing. Just say hi and nothing else.") {
           return NextResponse.json({ message: "hi" });
         } else if (user.content === "Test prompt using gpt-3.5-turbo") {
-          return NextResponse.json({
-            id: "chatcmpl-B61WhfVQ8FoaKXVaFAjkPLl3tFrMp",
+          const jsonBody = {
+            id: "chatcmpl-B626btJqv7jXSxVrnlbqvapMUR4OP",
             object: "chat.completion",
-            created: 1740775535,
-            model: "gpt-4o-mini-2024-07-18",
+            created: Math.trunc(Date.now() / 1000) + 3000,
+            model: "gpt-4o-2024-08-06",
             choices: [
               {
                 index: 0,
@@ -365,13 +61,13 @@ export async function POST(request: NextRequest) {
                   refusal: null,
                 },
                 logprobs: null,
-                finish_reason: "length",
+                finish_reason: "stop",
               },
             ],
             usage: {
-              prompt_tokens: 28,
-              completion_tokens: 10,
-              total_tokens: 38,
+              prompt_tokens: 26,
+              completion_tokens: 3,
+              total_tokens: 29,
               prompt_tokens_details: {
                 cached_tokens: 0,
                 audio_tokens: 0,
@@ -384,8 +80,68 @@ export async function POST(request: NextRequest) {
               },
             },
             service_tier: "default",
-            system_fingerprint: "fp_06737a9306",
-          });
+            system_fingerprint: "fp_eb9dce56a8",
+          };
+
+          const response = new Response(JSON.stringify(jsonBody, null, "  "));
+
+          // Remove the vary header if it exists
+          response.headers.delete("vary");
+
+          // Set standard headers
+          response.headers.set("content-type", "application/json");
+          response.headers.set("access-control-expose-headers", "X-Request-ID");
+          response.headers.set(
+            "openai-organization",
+            "user-m5zczkgcn5tupibsb6oyfhxp"
+          );
+          // Dynamic timestamp for processing
+          const processingTime = Math.floor(Math.random() * 500) + 1000; // Random time between 100-600ms
+          response.headers.set(
+            "openai-processing-ms",
+            processingTime.toString()
+          );
+          response.headers.set("x-http-version", "HTTP/2.0");
+          response.headers.set("openai-version", "2020-10-01");
+          response.headers.set("x-ratelimit-limit-requests", "500");
+          response.headers.set("x-ratelimit-limit-tokens", "30000");
+          response.headers.set("x-ratelimit-remaining-requests", "499");
+          response.headers.set("x-ratelimit-remaining-tokens", "29968");
+          response.headers.set(
+            "x-ratelimit-reset-requests",
+            `${Math.floor(Math.random() * 500)}ms`
+          );
+          response.headers.set("x-ratelimit-reset-tokens", "38ms");
+          // Dynamic request ID
+          const requestId = `req_${Array.from({ length: 32 }, () =>
+            Math.floor(Math.random() * 16).toString(16)
+          ).join("")}`;
+          response.headers.set("x-request-id", requestId);
+          response.headers.set(
+            "strict-transport-security",
+            "max-age=31536000; includeSubDomains; preload"
+          );
+          response.headers.set("cf-cache-status", "DYNAMIC");
+          response.headers.set("x-content-type-options", "nosniff");
+          response.headers.set("server", "cloudflare");
+          response.headers.set(
+            "cf-ray",
+            `${Array.from({ length: 16 }, () =>
+              Math.floor(Math.random() * 16).toString(16)
+            ).join("")}-EWR`
+          );
+          response.headers.set("alt-svc", 'h3=":443"; ma=86400');
+
+          // Set cookie headers - Next.js handles this differently than showing multiple set-cookie headers
+          response.headers.set(
+            "set-cookie",
+            "__cf_bm=tV4gMfLwzZwUopVbspgfOXGAzEbiCzhmBhVRsF0qHzE-1740776599-1.0.1.1-owSB8SjirauLP_C0ggDxaRejY4iBB4j5G2aomlVaEW3U.W1UAHZVd_.ij_SKIRx0V74dVwauaijkIzyhYXjQVGF3ZJ8VYbhM.sxouxKGixM; path=/; expires=Fri, 28-Feb-25 21:33:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=rTVsn9RReD0HvoaLKjFznEIA1m11z0AB9.w.YUbhOMc-1740776599667-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None"
+          );
+
+          console.log("=== Response ===");
+          console.log(`Status: ${response.status}`);
+          console.log("Response Headers:", response.headers);
+          return response;
         }
       }
     }
